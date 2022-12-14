@@ -1,8 +1,8 @@
 {% extends 'ejemplo/base.html' %}
-{% block titulo%} Alta de nuevo Familiar {% endblock %}
+{% block titulo%} Alta de nueva Mascota {% endblock %}
 {% block contenido %}
   
-  <form action="/mi-familia/alta" method="post">
+  <form action="/mi-mascota/alta" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Guardar">
@@ -10,6 +10,6 @@
 
   <h2 style="color:green">{{msg_exito}}</h2>
 
-  <a href="mi-familia">Volver a la lista de Familia</a>
+  <a href="mi-mascota">Volver a la lista de Mascotas</a>
 
 {% endblock %}
