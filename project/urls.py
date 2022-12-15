@@ -25,14 +25,14 @@ urlpatterns = [
     path('sumar/<int:a>/<int:b>/', sumar),
     path('buscar/',buscar),
     path('mi-familia/', mostrar_familiares),
-    path('mi-familia/buscar', BuscarFamiliar.as_view()),
-    path('mi-familia/alta', AltaFamiliar.as_view()),
-    path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()),
-    path('mi-familia/borrar/<int:pk>', BorrarFamiliar.as_view()),
-    path('mi-mascota/alta', AltaMascota.as_view()),
-    path('mis-mascotas', mostrar_mascotas),
-    path('mi-mascota/buscar', BuscarMascota.as_view()),
+    path('mi-familia/buscar', BuscarFamiliar.as_view(), name="mi-familia/buscar"),
+    path('mi-familia/alta', AltaFamiliar.as_view(), name="mi-familia/alta"),
+    path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view(), name="mi-familia/actualizar"),
+    path('mi-familia/borrar/<int:pk>', BorrarFamiliar.as_view(),name="mi-familia/borrar"),
+    path('mi-mascota/alta', AltaMascota.as_view(),name="mi-mascota/alta"),
+    path('mi-mascota', mostrar_mascotas),
+    path('mi-mascota/buscar', BuscarMascota.as_view(), name="mi-mascota/buscar"),
     path('mi-automovil', mostrar_automovil),
-    path('mi-automovil/alta', AltaAutomovil.as_view()),
-    path('mi-automovil/buscar', BuscarAutomovil.as_view())]
+    path('mi-automovil/alta', AltaAutomovil.as_view(), name= "mi-automovil/alta"),
+    path('mi-automovil/buscar', BuscarAutomovil.as_view(), name= "mi-automovil/buscar")]
 

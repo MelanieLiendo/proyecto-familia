@@ -9,7 +9,14 @@ print("Se cargo con éxito los usuarios de pruebas")
 
 from ejemplo.models import Mascota
 Mascota(animal="Perro", nombre="Roi").save()
-Mascota(nombre="Gato", nombre="Lolo").save()
-Mascota(nombre="Caballo", nombre="Juan").save()
-Mascota(nombre="Perro", nombre="Dori").save()
+Mascota(animal="Gato", nombre="Lolo").save()
+Mascota(animal="Caballo", nombre="Juan").save()
+Mascota(animal="Perro", nombre="Dori").save()
+print("Se cargo con éxito los usuarios de pruebas")
+
+from ejemplo.models import Automovil
+Automovil(marca="toyota", color="gris").save()
+Automovil(marca="honda", color="gris").save()
+Automovil(marca="fiat", color="gris").save()
+Automovil(marca="renault", color="gris").save()
 print("Se cargo con éxito los usuarios de pruebas")

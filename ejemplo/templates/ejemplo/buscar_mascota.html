@@ -2,12 +2,12 @@
 {% block titulo%} Buscar Mascotas por nombre {% endblock %}
 {% block contenido %}
   
-  <form action="/mi-mascota/buscar" method="post">
+  <form action="mi-mascota/buscar" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Buscar">
   </form>
-<a href="mis-mascotas">Volver a la lista de mascotas</a>
+<a href="mi-mascota">Volver a la lista de mascotas</a>
   {% for mascota in lista_mascotas %}
       <ul>
           <li> Nombre: {{mascota.nombre}}, Animal: {{mascota.animal}}</li>
