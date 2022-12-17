@@ -6,7 +6,6 @@ Familiar(nombre="Florencia", direccion="Rio Parana 745", numero_pasaporte=567567
 print("Se cargo con éxito los usuarios de pruebas")
 
 
-
 from ejemplo.models import Mascota
 Mascota(animal="Perro", nombre="Roi").save()
 Mascota(animal="Gato", nombre="Lolo").save()
