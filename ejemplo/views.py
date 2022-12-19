@@ -202,7 +202,7 @@ class BorrarMascota(View):
       mascota.delete()
       mascotas = Mascota.objects.all()
       return render(request, self.template_name, {'lista_mascotas': mascotas})
-
+     
 
 
 #Automovil
@@ -277,7 +277,7 @@ class ActualizarAutomovil(View):
           msg_exito = f"se actualizó con éxito el automovil {form.cleaned_data.get('marca')}"
           form = self.form_class(initial=self.initial)
           return render(request, self.template_name, {'form':form, 
-                                                      'marca': marca,
+                                                      'automovil': automovil,
                                                       'msg_exito': msg_exito})
       
       return render(request, self.template_name, {"form": form})
