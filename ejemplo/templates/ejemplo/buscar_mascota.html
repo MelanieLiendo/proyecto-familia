@@ -3,14 +3,15 @@
 {% block contenido %}
   
   <form action="mi-mascota/buscar" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Buscar">
+     {% csrf_token %}
+     {{ form }}
+     <input type="submit" value="Buscar">
   </form>
-<a href="mi-mascota">Volver a la lista de mascotas</a>
-  {% for mascota in lista_mascotas %}
-      <ul>
-          <li> Nombre: {{mascota.nombre}}, Animal: {{mascota.animal}}</li>
-      </ul>
-  {% endfor %}
+
+   {% for mascota in lista_mascotas %}
+       <ul>
+            <li> Nombre: {{mascota.nombre}}, Animal: {{mascota.animal}}</li>
+       </ul>
+   {% endfor %}
+   <a href="mi-mascota">Volver a la lista de mascotas</a>
 {% endblock %}

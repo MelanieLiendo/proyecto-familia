@@ -1,9 +1,9 @@
 {% extends 'ejemplo/base.html' %}
-{% block titulo%} Modificar un Familiar {% endblock %}
+{% block titulo%} Modificar un Automovil {% endblock %}
 {% block contenido %}
 
-<!-- Prestar atención a la variable familiar.id -->
-<form action="/mi-familia/actualizar/{{ familiar.id }}" method="post"> 
+<!-- Prestar atención a la variable automovil.id -->
+<form action="/mi-automovil/actualizar/{{ automovil.id }}" method="post"> 
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Actualizar">
