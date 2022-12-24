@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import (index, saludar_a, sumar, buscar, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, AltaMascota, mostrar_mascotas, BuscarMascota, mostrar_automovil, AltaAutomovil, BuscarAutomovil, ActualizarMascota, BorrarMascota, ActualizarAutomovil, BorrarAutomovil)
-
+from ejemplo.views import (index, saludar_a, sumar, buscar, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, AltaMascota, mostrar_mascotas, BuscarMascota, mostrar_automovil, AltaAutomovil, BuscarAutomovil, ActualizarMascota, BorrarMascota, ActualizarAutomovil, BorrarAutomovil, FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar)
+from ejemplo_dos.views import index, PostListar, PostCrear, PostBorrar, PostActualizar, PostDetalle, UserSignUp, UserLogin, UserLogout
+from django.contrib.admin.views.decorators import staff_member_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +39,19 @@ urlpatterns = [
     path('mi-automovil/buscar', BuscarAutomovil.as_view(), name= "mi-automovil/buscar"),
     path('mi-automovil/alta', AltaAutomovil.as_view(), name= "mi-automovil/alta"),
     path('mi-automovil/actualizar/<int:pk>', ActualizarAutomovil.as_view(), name="mi-automovil/actualizar"),
-    path('mi-automovil/borrar/<int:pk>', BorrarAutomovil.as_view(),name="mi-automovil/borrar")]
-    
+    path('mi-automovil/borrar/<int:pk>', BorrarAutomovil.as_view(),name="mi-automovil/borrar"),
+    path('panel-familia/', FamiliarList.as_view()),
+    path('panel-familia/crear', FamiliarCrear.as_view()),
+    path('panel-familia/<int:pk>/borrar', FamiliarBorrar.as_view(), name="panel-familia-borrar"),
+    path('panel-familia/<int:pk>/actualizar', FamiliarActualizar.as_view(), name="panel-familia-actualizar"),
+    path('ejemplo-dos/', index, name="ejemplo-dos-index"),
+    path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
+    path('ejemplo-dos/crear/', PostCrear.as_view(), name="ejemplo-dos-crear"),
+    path('ejemplo-dos/<int:pk>/borrar/', PostBorrar.as_view(), name="ejemplo-dos-borrar"),
+    path('ejemplo-dos/<int:pk>/actualizar/', PostActualizar.as_view(), name="ejemplo-dos-actualizar"),
+    path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
+    path('ejemplo-dos/signup', UserSignUp.as_view(), name= "ejemplo-dos-signup"),
+    path('ejemplo-dos/login', UserLogin.as_view(), name= "ejemplo-dos-login"),
+    path('ejemplo-dos/logout', UserLogout.as_view(), name= "ejemplo-dos-logout"),
+    ]
 
