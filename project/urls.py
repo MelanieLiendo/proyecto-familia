@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (index, saludar_a, sumar, buscar, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, AltaMascota, mostrar_mascotas, BuscarMascota, mostrar_automovil, AltaAutomovil, BuscarAutomovil, ActualizarMascota, BorrarMascota, ActualizarAutomovil, BorrarAutomovil, FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar)
-from ejemplo_dos.views import index, PostListar, PostCrear, PostBorrar, PostActualizar, PostDetalle, UserSignUp, UserLogin, UserLogout
+from ejemplo_dos.views import index, PostListar, PostCrear, PostBorrar, PostActualizar, PostDetalle, UserSignUp, UserLogin, UserLogout, AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle
 from django.contrib.admin.views.decorators import staff_member_required
 
 urlpatterns = [
@@ -53,5 +55,11 @@ urlpatterns = [
     path('ejemplo-dos/signup', UserSignUp.as_view(), name= "ejemplo-dos-signup"),
     path('ejemplo-dos/login', UserLogin.as_view(), name= "ejemplo-dos-login"),
     path('ejemplo-dos/logout', UserLogout.as_view(), name= "ejemplo-dos-logout"),
+    path('ejemplo-dos/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="ejemplo-dos-avatars-actualizar"),
+    path('ejemplo-dos/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="ejemplo-dos-users-actualizar"),
+    path('ejemplo-dos/mensajes/crear/', MensajeCrear.as_view(), name="ejemplo-dos-mensajes-crear"),
+    path('ejemplo-dos/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="ejemplo-dos-mensajes-detalle"),
+    path('ejemplo-dos/mensajes/listar/', MensajeListar.as_view(), name="ejemplo-dos-mensajes-listar"),
     ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT) 
