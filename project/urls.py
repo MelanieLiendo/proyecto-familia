@@ -31,7 +31,7 @@ urlpatterns = [
     path('vacaciones/<int:pk>/actualizar/', PostActualizar.as_view(), name="vacaciones-actualizar"),
     path('vacaciones/<int:pk>/detalle/', PostDetalle.as_view(), name="vacaciones-detalle"),
     path('vacaciones/signup', UserSignUp.as_view(), name= "vacaciones-signup"),
-    path('vacaciones/login', UserLogin.as_view(), name= "vacaciones-login"),
+    path('vacaciones/login/', UserLogin.as_view(), name= "vacaciones-login"),
     path('vacaciones/logout', UserLogout.as_view(), name= "vacaciones-logout"),
     path('vacaciones/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="vacaciones-avatars-actualizar"),
     path('vacaciones/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="vacaciones-users-actualizar"),
@@ -39,9 +39,7 @@ urlpatterns = [
     path('vacaciones/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="vacaciones-mensajes-detalle"),
     path('vacaciones/mensajes/listar/', MensajeListar.as_view(), name="vacaciones-mensajes-listar"),
     path('vacaciones/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name="vacaciones-mensajes-borrar"),
-    path('vacaciones/about', TemplateView.as_view(template_name='vacaciones/about.html'), name="vacaciones-about"),
-    path('vacaciones/blog', TemplateView.as_view(template_name='vacaciones/blog.html'), name="vacaciones-blog"),
-    path('vacaciones/home', TemplateView.as_view(template_name='vacaciones/home.html'), name="vacaciones-home"),
+    path('vacaciones/about', TemplateView.as_view(template_name='vacaciones/about.html'), name="vacaciones-about"),    
     ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT) 

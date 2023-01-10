@@ -1,9 +1,9 @@
-{% extends 'vacaciones/base.html '%}
+{%extends 'vacaciones/base.html' %}
+
 {% block contenido %}
     <form method="POST">
-
         {% csrf_token %}
-        {{ from.as_p}}
+        {{ form.as_p }}
         <input type="submit" value="Ingresar">
     </form>
- {% endblock %}
+{% endblock %}

@@ -7,13 +7,13 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from vacaciones.forms import UsuarioForm
-from vacaciones.models import Avatar, Post, Mensaje
+from vacaciones.models import Avatar
 from django.contrib.auth.admin import User
 
 
 def index(request):
     posts = Post.objects.order_by("-id").all()
-    return render(request, "vacaciones/index.html", {"posts": posts} )
+    return render(request, "vacaciones/index.html", {"posts": posts})
 
 class PostDetalle(DetailView):
     model = Post
