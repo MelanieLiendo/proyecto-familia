@@ -3,9 +3,7 @@
 {% block contenido %}
 {% if user.is_authenticated %}
     <a href="{% url 'vacaciones-crear' %}">Crear Post</a>
-    {% if user.avatar.imagen %}
-        <a href="{% url 'vacaciones-avatars-actualizar' user.id %}">Actualizar Avatar</a>
-    {% endif %}
+    <a href="{% url 'vacaciones-avatars-actualizar' user.avatar.id %}">Actualizar Avatar</a>
     <a href="{% url 'vacaciones-users-actualizar' user.id %}">Actualizar Profile</a>
     <a href="{% url 'vacaciones-mensajes-listar' user.id %}">Mensajes</a>
 {% endif %}

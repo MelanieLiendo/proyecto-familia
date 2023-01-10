@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
+from vacaciones.models import Post, Mensaje
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView, LogoutView
@@ -9,29 +10,30 @@ from vacaciones.forms import UsuarioForm
 from vacaciones.models import Avatar, Post, Mensaje
 from django.contrib.auth.admin import User
 
-@login_required
+
 def index(request):
-    posts= Post.objects.order_by('-publicado_el').all()
+    posts = Post.objects.order_by("-id").all()
     return render(request, "vacaciones/index.html", {"posts": posts} )
 
-class PostDetalle(LoginRequiredMixin, DetailView):
+class PostDetalle(DetailView):
     model = Post
 
 class PostListar(ListView):
     model = Post
 
-class PostCrear(LoginRequiredMixin, CreateView):
+class PostCrear(CreateView):
     model = Post
     success_url = reverse_lazy("vacaciones-listar")
     fields= '__all__'
 
-class PostBorrar(LoginRequiredMixin, DeleteView):
+class PostBorrar(DeleteView):
     model = Post
     success_url = reverse_lazy("vacaciones-listar")
 
-class PostActualizar(LoginRequiredMixin, UpdateView):
+class PostActualizar(UpdateView):
     model = Post
     success_url = reverse_lazy("vacaciones-listar")
+    fields = "__all__"
 
 class UserSignUp(CreateView):
     form_class = UsuarioForm
