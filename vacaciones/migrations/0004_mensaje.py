@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ejemplo_dos', '0003_post_imagen'),
+        ('vacaciones', '0003_post_imagen'),
     ]
 
     operations = [
