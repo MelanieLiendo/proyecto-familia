@@ -21,16 +21,16 @@ class PostDetalle(DetailView):
 class PostListar(ListView):
     model = Post
 
-class PostCrear(CreateView):
+class PostCrear(CreateView, LoginRequiredMixin):
     model = Post
     success_url = reverse_lazy("vacaciones-listar")
     fields= '__all__'
 
-class PostBorrar(DeleteView):
+class PostBorrar(DeleteView, LoginRequiredMixin):
     model = Post
     success_url = reverse_lazy("vacaciones-listar")
 
-class PostActualizar(UpdateView):
+class PostActualizar(UpdateView, LoginRequiredMixin):
     model = Post
     success_url = reverse_lazy("vacaciones-listar")
     fields = "__all__"
@@ -63,7 +63,7 @@ class MensajeDetalle(LoginRequiredMixin, DetailView):
 class MensajeListar(LoginRequiredMixin, ListView):
     model = Mensaje  
 
-class MensajeCrear(CreateView):
+class MensajeCrear(SuccessMessageMixin, CreateView):
     model = Mensaje
     success_url = reverse_lazy("vacaciones-mensajes-crear")
     fields = ['nombre', 'email', 'texto']
